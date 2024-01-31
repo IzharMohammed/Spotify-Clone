@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+#invert {
+    filter: invert(1);
+}
+
+.home {
+    width: 20px;
+}
+
+.search {
+    width: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.left {
+    width: 25%;
+    margin: 13px;
+    height: 100vh;
+}
+
+.left-up {
+    /* border: 2px solid; */
+    width: 100%;
+    padding: 13px;
+    background-color: #121212;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.left-up ul li {
+    display: flex;
+    gap: 17px;
+    font-size: 21px;
+}
+
+.left-up ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.library {
+
+    width: 20px;
+}
+
+.left-down {
+    /* border: 2px solid; */
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    color: white;
+    padding: 13px;
+}
+
+.heading {
+    display: flex;
+    gap: 25px;
+}
+
+.right {
+    width: 75%;
+    /* background-color: #121212; */
+    margin: 13px;
+    padding: 13px;
+    margin-left: -7px;
+
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+}
+
+.right-up {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(34 34 34);
+    height: 12%;
+    align-items: center;
+    margin: -11px
+}
+
+.buttons {
+    margin-right: 20px;
+}
+
+.right-down {
+    margin-top: 12px;
+    height: 100%;
+    background-color: rgb(18, 18, 18);
+    margin-left: -12px;
+    padding: 9px;
+    overflow-y: scroll;
+    max-height: 80vh;
+    width: 100%;
+}
+
+.right-down>h2 {
+    font-size: 31px;
+}
+
+.cards {
+    width: 197px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    cursor: pointer;
+}
+
+.cards>img {
+    width: 100%;
+}
+
+.playlists {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 21px;
+    margin-top: 25px;
+}
+.songsButton{
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    height: 34px;
+    border-radius: 12px;
+}
+
+.songsList ul li{
+    display: flex;
+    border: 2px solid;
+    padding: 16px;
+    margin: 27px 0;
+    justify-content: space-between;
+    list-style-type: decimal;
+}
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    /* Dark color for the thumb */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #222;
+    /* Dark color for the track */
+}
+
+/* For Firefox */
+scrollbar-color: #333 #222;
+/* Dark color for the thumb and track in Firefox */
+
+
