@@ -28,7 +28,7 @@ ul {
 }
 
 .left {
-    width: 25%;
+    width: 27%;
     margin: 13px;
     height: 100vh;
 }
@@ -136,27 +136,73 @@ ul {
     flex-wrap: wrap;
     margin-left: 21px;
     margin-top: 25px;
-}
-.songsButton{
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    height: 34px;
-    border-radius: 12px;
+    position: relative;
 }
 
-.songsList ul li{
+.songname, .images, .songtime {
+    margin-top: 15px;
+}
+
+.images {
+    position: fixed;
+    right: 39rem;
+}
+
+.songsButton {
+    background-color: #756969;
+    width: 69%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 56px;
+    border-radius: 12px;
+    position: fixed;
+    bottom: 21px;
+}
+
+.songsButton img {
+    width: 24px;
+}
+
+.songsList ul {
+    overflow-y: scroll;
+    height: 35rem;
+}
+
+.songsList ul li {
     display: flex;
     border: 2px solid;
     padding: 16px;
     margin: 27px 0;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style-type: decimal;
+    gap: 11px;
+    font-size: 15px;
 }
 
+.playBar {
+    position: relative;
+}
 
+.seekbar {
+    width: 69%;
+    height: 5px;
+    background-color: #81f779;
+    position: fixed;
+    bottom: 16px;
+    border-radius: 71px;
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    bottom: 4px;
+    left: 0px;
+    transition: left 0.5s;
+}
 
 
 
@@ -180,5 +226,3 @@ ul {
 /* For Firefox */
 scrollbar-color: #333 #222;
 /* Dark color for the thumb and track in Firefox */
-
-
