@@ -32,9 +32,20 @@ ul {
     margin: 13px;
     height: 100vh;
 }
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.down{
+    display: none;
+}
 
 .left-up {
     /* border: 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     width: 100%;
     padding: 13px;
     background-color: #121212;
@@ -144,8 +155,8 @@ ul {
 }
 
 .images {
-    position: fixed;
-    right: 39rem;
+    /* position: fixed;
+    right: 39rem; */
 }
 
 .songsButton {
@@ -187,7 +198,7 @@ ul {
 .seekbar {
     width: 69%;
     height: 5px;
-    background-color: #81f779;
+    background-color: #ffffff;
     position: fixed;
     bottom: 16px;
     border-radius: 71px;
@@ -224,5 +235,54 @@ ul {
 }
 
 /* For Firefox */
-scrollbar-color: #333 #222;
+/* scrollbar-color: #333 #222; */
 /* Dark color for the thumb and track in Firefox */
+
+@media (max-width: 1200px){
+
+
+.left{
+    position: absolute;
+    left: -100%;
+    transition: all 0.5s;
+    z-index: 1;
+    background-color: black;
+    width: 88%;
+    margin: 9px;
+}
+
+.right{
+    width: 98%;
+}
+
+.seekbar , .songsButton{
+    width: 98%;
+}
+
+.songsButton{
+    justify-content: space-between;
+    height: 125px;
+    gap: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    width: 290px;
+}
+
+.down{
+    display: block;
+}
+
+.hamburger{
+    display: block;
+}
+.icons{
+    display: flex;
+    gap: 11px;
+    margin-left: 16px;
+}
+
+}

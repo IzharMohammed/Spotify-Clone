@@ -1,5 +1,6 @@
 let currSong = new Audio(); //Current song which is playing is stored in currSong
 let play = document.getElementById('play'); //image of play button
+let songs;
 
 async function fetchsongs() {
     let a = await fetch('http://127.0.0.1:5500/songs/');
@@ -32,12 +33,12 @@ function playMusic(track) {
     console.log(decodeURI(currSong.src));
     //displaying name of current song on song bar
     document.querySelector('.songname').innerHTML = decodeURI(currSong.src).split('-')[1];
-    let circle = document.querySelector('.circle');
+    // let circle = document.querySelector('.circle');
     currSong.play();
 }
 
 async function main() {
-    let songs = await fetchsongs();
+    songs = await fetchsongs();
     let songsUl = document.querySelector('.songsList').getElementsByTagName('ul')[0];
     //we are not creating dom and attaching to ul instead we are directly attaching li's of all songs to ul
     for (const song of songs) {
@@ -45,8 +46,10 @@ async function main() {
         <li>
                     <img id="invert" src="img/music.svg" alt="">
                     <div class='info'>${song.replaceAll('%20', ' ')}</div>
+               
                     <div>Play now</div>
                     <img id="invert" src="img/play.svg" alt="">
+                
                 </li>`
     }
     /*
@@ -85,11 +88,38 @@ async function main() {
 
 
     document.querySelector('.seekbar').addEventListener('click', e => {
-        console.log(e);
-        let offsetX = e.offsetX;
-        // let width = e.cli
+        document.querySelector('.circle').style.left = (e.offsetX / e.target.getBoundingClientRect().width) * 100 + '%'
+        currSong.currentTime = ((currSong.duration) * (e.offsetX / e.target.getBoundingClientRect().width) * 100) / 100
+    })
+
+    document.querySelector('.hamburger').addEventListener('click', (e) => {
+        console.log(e.target);
+        document.querySelector('.left').style.left = '0px'
+    })
+
+    document.querySelector('.close').addEventListener('click', e => {
+        document.querySelector('.left').style.left = '-100%'
 
     })
+
+    document.querySelector('.nextSong').addEventListener('click', (e) => {
+        console.log(songs)
+        console.log(songs.indexOf( currSong.src.split('com')[1]));
+        let indexOfCurrSong = songs.indexOf( currSong.src.split('com')[1])
+        if(indexOfCurrSong+1< songs.length)
+        playMusic(songs[indexOfCurrSong+1])
+        console.log(indexOfCurrSong+1 ,'<', songs.length)
+    })
+
+    document.querySelector('.preSong').addEventListener('click', (e) => {
+        let indexOfCurrSong = songs.indexOf( currSong.src.split('com')[1])
+        if(indexOfCurrSong>0)
+        playMusic(songs[indexOfCurrSong-1])
+    })
+
+
+
+
 
 }
 main();
