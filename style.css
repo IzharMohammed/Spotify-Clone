@@ -57,8 +57,12 @@ ul {
 
 .down {
     display: none;
+    cursor: pointer;
 }
 
+.down img{
+    width: 35px;
+}
 .left-up {
     display: flex;
     align-items: center;
@@ -76,10 +80,13 @@ ul {
     font-size: 21px;
 }
 
+.up{
+    margin-left: 15px;
+}
 .left-up ul {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
 }
 
 .library {
@@ -97,6 +104,7 @@ ul {
 .heading {
     display: flex;
     gap: 25px;
+    margin-top: 5px;
 }
 
 .right {
@@ -123,6 +131,8 @@ ul {
 
 .buttons {
     margin-right: 20px;
+    display: flex;
+    gap: 26px
 }
 
 .right-down {
@@ -138,19 +148,25 @@ ul {
 
 .right-down>h2 {
     font-size: 31px;
+    margin: 25px;
 }
 
 .cards {
-    width: 197px;
+    width: 172px;
     padding: 10px;
     border-radius: 5px;
     background-color: #252525;
     margin: 7px;
     display: flex;
     flex-direction: column;
-    /* gap: 9px;*/
+    gap: 10px;
     justify-content: space-between;
     /* cursor: pointer; */
+    transition: all 1s;
+}
+
+.cards:hover{
+    background-color: rgb(79, 78, 78);
 }
 
 .cards>img {
@@ -173,12 +189,12 @@ ul {
 }
 
 .songsButton {
-    background-color: #756969;
+    background-color:  #424242;
     width: 69%;
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    height: 56px;
+    height: 65px;
     border-radius: 12px;
     position: fixed;
     bottom: 21px;
@@ -190,7 +206,7 @@ ul {
 
 .songsList ul {
     overflow-y: auto;
-    height: 35rem;
+    height: 28rem;
 }
 
 .songsList ul li {

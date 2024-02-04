@@ -5,7 +5,6 @@ let currfolder
 
 async function fetchsongs(folder) {
     currfolder=folder
-    // console.log((currfolder));
     let a = await fetch(`http://127.0.0.1:5500/${currfolder}/`);
     let response = await a.text();
     let div = document.createElement('div');
@@ -68,30 +67,23 @@ function playMusic(track) {
     // console.log(decodeURI(currSong.src));
     //displaying name of current song on song bar
     document.querySelector('.songname').innerHTML = decodeURI(currSong.src).split('-')[1];
-    // let circle = document.querySelector('.circle');
     currSong.play();
 }
-
-
 
 async function displayAlbums(){
     let a = await fetch(`http://127.0.0.1:5500/songs/`);
     let response = await a.text();
     let div = document.createElement('div');
     div.innerHTML = response;
-    // console.log(div);
     let as = div.getElementsByTagName('a');
-    // console.log(as.href);
 
         let array = Array.from(as)
         for (let index = 0; index < array.length; index++) {
             const e = array[index];
-    // console.log(e.href);
   if(e.href.includes('/songs/')){
          let folder = e.href.split('songs/')[1];
          let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
          let response = await a.json();
-        //  console.log(response);
         let container = document.querySelector('.playlists')
         container.innerHTML=container.innerHTML + `
         <div data-folder=${folder} class="cards">
@@ -103,7 +95,6 @@ async function displayAlbums(){
 
 //load the playlist whenever card is clicked
 Array.from(document.getElementsByClassName('cards')).forEach(e=>{
-    // console.log(e);
     e.addEventListener('click', async item=>{
     //  console.log(item.currentTarget.dataset.folder);
    await fetchsongs(`songs/${item.currentTarget.dataset.folder}`);
@@ -112,17 +103,10 @@ Array.from(document.getElementsByClassName('cards')).forEach(e=>{
 })
   }
 }
-
 }
-
-
-
-
 
 async function main() {
      await fetchsongs("songs/ncs");
-
-
     displayAlbums()
 
     //Adding eventListener to play image if we click on play image the song which is stored in currSong starts plays and viceversa
@@ -143,7 +127,6 @@ async function main() {
         document.querySelector('.circle').style.left = (currSong.currentTime / currSong.duration) * 100 + '%'
     })
 
-
     document.querySelector('.seekbar').addEventListener('click', e => {
         document.querySelector('.circle').style.left = (e.offsetX / e.target.getBoundingClientRect().width) * 100 + '%'
         currSong.currentTime = ((currSong.duration) * (e.offsetX / e.target.getBoundingClientRect().width) * 100) / 100
@@ -159,27 +142,19 @@ async function main() {
 
     })
 
-
-    console.log(songs);
     document.querySelector('.nextSong').addEventListener('click', (e) => {
         console.log(currSong.src.split('com'))
-    console.log(songs);
-       
           console.log(songs.indexOf( currSong.src.split('com')[1]));
           let indexOfCurrSong = songs.indexOf( currSong.src.split('com')[1])
           if(indexOfCurrSong+1< songs.length)
           playMusic(songs[indexOfCurrSong+1])
-          // console.log(indexOfCurrSong+1 ,'<', songs.length)
       })
     
-
     document.querySelector('.preSong').addEventListener('click', (e) => {
       console.log(currSong.src)
-
         let indexOfCurrSong = songs.indexOf( currSong.src.split('com')[1])
         if(indexOfCurrSong>0)
         playMusic(songs[indexOfCurrSong-1])
     })
-
 }
 main();
